@@ -181,7 +181,7 @@ function InvioOrdine(spesaTotale)
             imgElement.style.width = "75px";
             imgElement.style.height = "75px";
             imgElement.style.borderRadius = "50px";
-            imgElement.src = selectedOptionsC[i].value + ".jpg";            
+            imgElement.src = "img/" + selectedOptionsC[i].value + ".jpg";            
             inputElement.addEventListener("input", function() 
             {
                 if (this.value.length > 1) 
@@ -205,7 +205,7 @@ function InvioOrdine(spesaTotale)
             imgElement.style.width = "75px";
             imgElement.style.height = "75px";
             imgElement.style.borderRadius = "50px";
-            imgElement.src = selectedOptionsB[i].value+ ".jpg";
+            imgElement.src = "img/" + selectedOptionsB[i].value+ ".jpg";
             inputElement.addEventListener("input", function() 
             {
                 if (this.value.length > 1) 
