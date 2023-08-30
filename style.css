@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body
+{
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: Lexend;
+    min-height: 100vh;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input[type="text"],input[type="email"],input[type="number"],h1
+{
+    border-color: #848080;
+    width: 26em;
+    border-top: none;
+    border-left: none;
+    border-right: none;  
+    outline: none;
+    padding-bottom: 0.7em;
+    margin: 1.5em;
+    font-family: Lexend;
+    background-color: transparent;
+    font-size: 1em;
+    border-bottom-width: 0.02em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input::placeholder
+{
+    color: rgb(69, 63, 63);
+}
+select
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #7B8FA1;
+    padding: 7px 40px 7px 12px;
+    outline: none;
+    border-radius: 0.5em;
+    border: solid transparent 2px;
+    height: 2.5em;
+    background: rgb(96, 96, 96);
+    box-shadow: 0 1px 4px -2px #575c67;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 150ms ease;
+}   
+select:hover
+{
+    border-color: #94A5B5;
+    box-shadow: 0 0 0 2px rgba(#0077FF,.4);
+}
+.buttons-finali
+{
+    display: flex;
+    justify-content: space-between;
+}
+#button-finale-submit, #button-finale-submit2
+{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 11.5em;
+    height: 3.5em;
+    border-radius: 0.8em;
+    border: none;
+    margin-left: 35em;
+    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
+    background-color: #6ed461;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#button-finale-submit:hover, #button-finale-submit2:hover
+{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 11.5em;
+    height: 3.5em;
+    border-radius: 0.8em;
+    border: none;
+    margin-left: 35em;
+    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
+    background-color: #54a34a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#button-finale-submit:focus, #button-finale-submit2:focus
+{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 11.5em;
+    height: 3.5em;
+    border-radius: 0.8em;
+    border: none;
+    margin-left: 35em;
+    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
+    background-color: #44813c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#button-finale-restart
+{
+    width: 11.5em;
+    height: 3.5em;
+    border-radius: 0.8em;
+    border: none;
+    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
+    background-color: #b96767;
+    color: white;
+    margin-right: 35em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#button-finale-restart:hover
+{
+    width: 11.5em;
+    height: 3.5em;
+    border-radius: 0.8em;
+    border: none;
+    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
+    background-color: #975656;
+    color: white;
+    margin-right: 35em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#button-finale-restart:focus
+{
+    width: 11.5em;
+    height: 3.5em;
+    border-radius: 0.8em;
+    border: none;
+    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
+    background-color: #834b4b;
+    color: white;
+    margin-right: 35em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#spinner
+{
+    width: 5em;
+    height: 5em;
+    display: none;
+    margin-left: 47.5%;
+}
+.btn, .bootstrap-select, .show-tick
+{
+    width: 150em;
+}
+.label-form  
+{
+    font-family: Lexend;
+    font-weight: bolder;
+    display: inline-flex;
+    margin-left: 42em;
+    margin-top: 2em;
+    margin-bottom: -1em;
+    color: #b96767;
+}
+h3,h4
+{
+    display: flex;
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h3
+{
+    color: #cb4279;
+    padding-top: 4em;
+    margin-left: 21.5em;
+}
+h4
+{
+    color: #b96767;
+    margin-left: 23.5em ;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.modal-backdrop, .fade, .show, .modal
+{
+    width: 110%;
+    height: 110%;
+}   
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button 
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"]
+{
+    width: 1em;
+    margin-top: 0.5em;
+}
+.label-ordine
+{
+    font-family: Lexend;
+    font-weight: bold;
+    display: inline-flex;
+}
+#modal-body 
+{
+    background-color: #fff;
+    max-height: 60vh;
+}
+.btn.dropdown-toggle:hover
+{
+    background-color: rgb(128, 218, 128);
+    opacity: 1;
+    border-color: transparent;
+    transition-duration: 1s;
+}
+.btn.dropdown-toggle
+{
+    background-color: lightgreen;
+    border-color: transparent;
+    transition-duration: 1s;
+}
+.dropup .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    /*border-top: 0;*/
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.3em solid;
+    border-left: 0.3em solid transparent;
+}
+.inner.show
+{
+    min-height: 100px;
+    max-height: 100px;
+    min-width: max-content;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

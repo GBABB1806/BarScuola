@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="validazione.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.1.1/papaparse.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+</head>
+<body background="sfondo.jpg" style="background-repeat: no-repeat;background-size: 100%;background-position-x: center;background-position-y: -7.5em;">
+
+    <h3>Perfeziona il tuo ordine</h3>
+    <form style="display: flex" name="cibo" id="order-form">
+        <label for="cibo" class="label-form">Scegli il cibo</label>
+        <div class="container mt-5" style="display: inline-flex; margin-left: 40em;margin-top: -5em;">
+            <select id="cibo" class="selectpicker" multiple aria-label="Default select example" data-live-search="true" onchange="PrezzoPagare()">
+                <option value="Cotoletta">Panino Cotoletta</option>
+                <option value="HotDog">Hot-Dog</option>
+                <option value="Focaccia">Focaccia</option>
+                <option value="FocacciaSalame">Focaccia con salame</option>
+                <option value="FocacciaMortadella">Focaccia con mortadella</option>
+                <option value="FocacciaCotto">Focaccia con prosciutto cotto</option>
+                <option value="FocacciaCrudo">Focaccia con prosciutto crudo</option>
+                <option value="FocacciaCottoFormaggio">Focaccia cotto e formaggio</option>
+                <option value="FocacciaSalameFormaggio">Focaccia salame e formaggio</option>
+                <option value="PaninoSalame">Panino col salame</option>
+                <option value="PaninoCotto">Panino col cotto</option>
+                <option value="PaninoCrudo">Panino col crudo</option>
+                <option value="PaninoMortadella">Panino con mortadella</option>
+                <option value="ToastCottoFontina">Tostone cotto e fontina</option>
+                <option value="Toast">Toast</option>
+                <option value="CiabattaCrudoMozzarella">Ciabatta crudo e mozzarella</option>
+                <option value="Pizza">Quadretto di pizza margherita</option>
+                <option value="RotoloWurstel">Rotolo di piada con wurstel</option>
+                <option value="RotoloSalsiccia">Rotolo di piada con Salsiccia</option>
+            </select>
+        </div>
+        <label for="bere" class="label-form">Scegli la bevanda</label>
+        <div class="container mt-5" style="display: flex; margin-left: 40em;">
+            <select id="bere"class="selectpicker" multiple aria-label="Default select example" data-live-search="true" onchange="PrezzoPagare()">
+                <option value="Soda">Lemon soda</option>
+                <option value="CocaCola">Coca Cola</option>                
+                <option value="Aranciata">Aranciata</option>
+                <option value="TeLimone">Tè al limone</option>                
+                <option value="TePesca">Tè alla pesca</option>
+                <option value="Chinotto">Chinotto</option>                
+                <option value="CocaColaBottiglia">Coca Bottiglia 50cl </option>
+                <option value="AcquaNaturale">Acqua naturale 50cl</option>
+                <option value="AcquaFrizzante">Acqua frizzante 50cl</option>
+            </select>
+        </div>
+        <br>
+        <div name="pulsanti" class="buttons-finali">
+            <input type="button" value="INVIA" onclick="InvioOrdine(PrezzoPagare())" id="button-finale-submit">&nbsp;
+            <input type="reset" value="RESET" onclick="resetForm()" id="button-finale-restart">
+        </div>
+    </form>
+    <div class="modal fade" id="myModal" style="margin-top: 2.5em;">
+        <div class="modal-dialog">
+          <div class="modal-content" id= "modal-content"style="margin-left:-8em;height: 10em;width:150%;">
+            <!-- Modal body -->
+            <div class="modal-header">
+              <p id="testo"></p>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="modal-body" style="border: none none none none;flex-wrap: wrap;display: flex;">
+                
+            </div>
+            <div class="modal-footer" id="modal-footer" style="background-color: white;margin-top: 0em;"> 
+                <h4 id="prezzo">IMPORTO DA PAGARE: 0.00€</h4>
+                <input type="button" value="INVIA" onclick="ControlloQuantita()" style="width:4em;height: 2em;border-radius: 10px;padding-left: .7em;" id="button-finale-submit2">
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
