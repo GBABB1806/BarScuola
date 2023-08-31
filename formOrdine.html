@@ -65,21 +65,30 @@
     </form>
     <div class="modal fade" id="myModal" style="margin-top: 2.5em;">
         <div class="modal-dialog">
-          <div class="modal-content" id= "modal-content"style="margin-left:-8em;height: 10em;width:150%;">
-            <!-- Modal body -->
-            <div class="modal-header">
-              <p id="testo"></p>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" id= "modal-content"style="margin-left:-8em;height: 10em;width:150%;">
+                <!-- Modal body -->
+                <div class="modal-header">
+                    <p id="testo"></p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modal-body" style="border: none none none none;flex-wrap: wrap;display: flex;"></div>
+                <div class="modal-footer" id="modal-footer" style="background-color: white;margin-top: 0em;"> 
+                    <h4 id="prezzo">IMPORTO DA PAGARE: 0.00€</h4>
+                    <input type="button" value="INVIA" onclick="ControlloQuantita()" style="width:4em;height: 2em;border-radius: 10px;padding-left: .7em;" id="button-finale-submit2">
+                </div>
             </div>
-            <div class="modal-body" id="modal-body" style="border: none none none none;flex-wrap: wrap;display: flex;">
-                
-            </div>
-            <div class="modal-footer" id="modal-footer" style="background-color: white;margin-top: 0em;"> 
-                <h4 id="prezzo">IMPORTO DA PAGARE: 0.00€</h4>
-                <input type="button" value="INVIA" onclick="ControlloQuantita()" style="width:4em;height: 2em;border-radius: 10px;padding-left: .7em;" id="button-finale-submit2">
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+    <div class="modal fade" id="ModalErrore" style="margin-top: 15em;">
+        <div class="modal-dialog" bgcolor="red">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-header">
+                    <p id="testoFinale">Inserisci delle quantita valide per tutti i prodotti</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

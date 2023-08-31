@@ -300,8 +300,29 @@ function CalcolaSpesaTotale() {
         }
     });
     document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: " + spesaTotale.toFixed(2) + "€    ";
+    return spesaTotale + " €";
 }
 function ControlloQuantita() 
 {
-    
+    var myModal = document.getElementById('myModal');
+    var myModal2 = new bootstrap.Modal(document.getElementById('ModalErrore'));
+    var numeroInput = document.querySelectorAll('input[type="number"]');
+    var parametri = new URLSearchParams(window.location.search);
+    for (let i = 0; i < numeroInput.length; i++) 
+    {
+        if(numeroInput[i].value ===""||numeroInput[i].value === 0 || numeroInput[i].value === undefined)
+        {
+            document.getElementById("testoFinale").innerHTML = "Inserisci delle quantita valide per tutti i prodotti";
+            myModal2.show();
+        }
+        else
+        {
+            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione') +" spesa totale = "+ CalcolaSpesaTotale();
+            myModal.style.visibility = "hidden";
+            myModal2.show();        
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 3000);
+        }
+    }
 }
