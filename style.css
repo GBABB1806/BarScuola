@@ -2,7 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+*::selection
+{
+    background-color: #575c67;
+    color: #54a34a;
 }
 body
 {
@@ -113,26 +118,31 @@ select:hover
 }
 #button-finale-restart
 {
+    background-image: linear-gradient(to right, #553131 0%, #c02222  51%, #553131  100%);
     width: 11.5em;
     height: 3.5em;
     border-radius: 0.8em;
+    transition: 0.5s;
+    background-size: 200% auto;
     border: none;
-    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
-    background-color: #b96767;
+    box-shadow: 0 0 20px #eee;
     color: white;
     margin-right: 35em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
     transition-duration: 0.5s;
 }
 #button-finale-restart:hover
 {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
     width: 11.5em;
     height: 3.5em;
     border-radius: 0.8em;
     border: none;
-    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
     background-color: #975656;
     color: white;
     margin-right: 35em;
@@ -147,8 +157,8 @@ select:hover
     height: 3.5em;
     border-radius: 0.8em;
     border: none;
-    box-shadow: 0 9px 50px rgba(86, 98, 110, 0.31);
     background-color: #834b4b;
+    box-shadow: 0 0 20px #eee;
     color: white;
     margin-right: 35em;
     font-family: Arial, Helvetica, sans-serif;
@@ -175,7 +185,7 @@ select:hover
     margin-left: 42em;
     margin-top: 2em;
     margin-bottom: -1em;
-    color: #b96767;
+    color: #b73535;
 }
 h3,h4
 {
@@ -254,3 +264,22 @@ input[type="number"]
     overflow-x: hidden;
     overflow-y: scroll;
 }
+         
+.btn-grad {
+    background-image: linear-gradient(to right, #315536 0%, #22c02c  51%, #315538  100%);
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 

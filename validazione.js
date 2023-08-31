@@ -3,14 +3,11 @@ function Invio()
     var email = document.modulo.email.value;
     var contoChiocciola = 0;
     var contoPunti = 0;
-    var nomeEmail = email.split("@")[0].split(".")[0];
-    var cognomeEmail = email.split("@")[0].split(".")[1];
     var errori = 0;
     var classe = document.getElementById("inputClasse").value;
     var sezione = document.getElementById("inputSezione").value;
     var errorescrt = document.getElementById("popuperrore");
     var dominioEmail = email.split("@")[1];
-
     //controllo mail
     if(email == "" || email == "undefinied")
     {
@@ -34,7 +31,7 @@ function Invio()
     }
     
     //controllo dominio e-mail
-    if(dominioEmail != "ittsrimini.edu.it"&& dominioEmail !="studenti.ittsrimini.edu.it")
+    if(dominioEmail !="studenti.ittsrimini.edu.it")
     {   
         errori++;
         errorescrt.innerHTML = "IL DOMINIO DELL' EMAIL INSERITA NON E' VALIDO, RIPOVA"
@@ -300,7 +297,7 @@ function CalcolaSpesaTotale() {
         }
     });
     document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: " + spesaTotale.toFixed(2) + "€    ";
-    return spesaTotale + " €";
+    return spesaTotale.toFixed(2) + " €";
 }
 function ControlloQuantita() 
 {
@@ -317,12 +314,12 @@ function ControlloQuantita()
         }
         else
         {
-            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione') +" spesa totale = "+ CalcolaSpesaTotale();
+            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione').toUpperCase() +" spesa totale = "+ CalcolaSpesaTotale();
             myModal.style.visibility = "hidden";
             myModal2.show();        
             setTimeout(() => {
                 window.location.href = "index.html";
-            }, 3000);
+            }, 10000);
         }
     }
 }
