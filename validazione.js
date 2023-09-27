@@ -95,10 +95,6 @@ function Invio()
 
 function PrezzoPagare()
 {
-    // Recupera i valori dei parametri dalla query string dell'URL
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var classe = urlParams.get('classe');
     const dictionaryC = 
     {
         'Cotoletta': 2.00,
@@ -138,6 +134,7 @@ function PrezzoPagare()
     const selectElementB = document.getElementById('bere');
     const selectedOptionsB = Array.from(selectElementB.selectedOptions);
     var spesaTotale = 0.0;
+    //foreach per il la scelta
     selectedOptionsC.forEach(option => {
         console.log(option.value);
         spesaTotale += dictionaryC[option.value];
@@ -196,7 +193,6 @@ function InvioOrdine(spesaTotale)
         }
         for (var i = 0; i < selectedOptionsB.length; i++) 
         {
-            
             var labelElement = document.createElement("label");
             var imgElement = document.createElement("img");
             var inputElement = document.createElement("input");
@@ -233,7 +229,8 @@ function InvioOrdine(spesaTotale)
         myModal.show();
     }
 }
-function CalcolaSpesaTotale() {
+function CalcolaSpesaTotale() 
+{
     spesaTotale = 0.00;
     const dictionaryC = 
     {
@@ -319,11 +316,3 @@ function ControlloQuantita()
         }
     }
 }
-paypal.Buttons({
-    createOrder: function(data, actions) {
-      // Personalizza questa funzione per creare l'ordine
-    },
-    onApprove: function(data, actions) {
-      // Personalizza questa funzione per gestire l'approvazione del pagamento
-    }
-  }).render('#paypal-button-container');
