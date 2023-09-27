@@ -46,17 +46,17 @@ function Invio()
     // Converti le sezioni in maiuscolo per un confronto uniforme
     var sezioneMaiuscola = sezione.toUpperCase();
     //Controllo tutte le sezioni
-    if ((sezioneMaiuscola > "O" || sezioneMaiuscola > "o"||/^\d+$/.test(sezioneMaiuscola)) && classe == 1) 
+    if ((sezioneMaiuscola > "L" || sezioneMaiuscola > "l"||/^\d+$/.test(sezioneMaiuscola)) && classe == 1) 
     {   
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "N" && classe == 2||/^\d+$/.test(sezioneMaiuscola))
+    if (sezioneMaiuscola > "O" && classe == 2||/^\d+$/.test(sezioneMaiuscola))
     {   
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "L" && classe == 3||/^\d+$/.test(sezioneMaiuscola))
+    if (sezioneMaiuscola > "N" && classe == 3||/^\d+$/.test(sezioneMaiuscola))
     {   
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
@@ -66,13 +66,12 @@ function Invio()
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "J" && classe == 5||/^\d+$/.test(sezioneMaiuscola))
+    if (sezioneMaiuscola > "L" && classe == 5||/^\d+$/.test(sezioneMaiuscola))
     { 
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
     //controllo istituto
-
     if(istituto == "Default")
     {
         errorescrt.innerHTML = "Valore non corretto per l'istituto";
@@ -92,7 +91,6 @@ function Invio()
         myModal.show();
     }
 }
-
 function PrezzoPagare()
 {
     const dictionaryC = 
@@ -305,7 +303,10 @@ function ControlloQuantita()
         }
         else
         {
-            window.location.href = "mailto:gabriele.abbruscato06@gmail.com?subject=ConfermaOrdine&body=";
+            var email = "gabriele.abbruscato06@gmail.com";
+            var titolo = "ConfermaOrdine";
+            var datiForm = "Dettagli ordine" +"\nIstituto: " + parametri.get('istituto') + "\nClasse: " + parametri.get('classe') + parametri.get('sezione') + "\nOrdinazioni:";
+            window.location.href ="mailto:" + email + "?subject=" + titolo + "&body=" + encodeURIComponent(datiForm);
             document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione').toUpperCase() +" spesa totale = "+ CalcolaSpesaTotale();
             myModal.style.visibility = "hidden";
             myModal2.show(); 
