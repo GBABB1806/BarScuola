@@ -1,5 +1,6 @@
 function Invio() 
 {
+    //dichiarazione variabili
     var email = document.modulo.email.value;
     var contoChiocciola = 0;
     var contoPunti = 0;
@@ -8,6 +9,7 @@ function Invio()
     var sezione = document.getElementById("inputSezione").value;
     var errorescrt = document.getElementById("popuperrore");
     var dominioEmail = email.split("@")[1];
+    var istituto=document.getElementById("istituto").value;
     //controllo mail
     if(email == "" || email == "undefinied")
     {
@@ -29,24 +31,21 @@ function Invio()
             errorescrt.innerHTML = "L'EMAIL INSERITA NON E' VALIDA, RIPROVA"
         }
     }
-    
     //controllo dominio e-mail
     if(dominioEmail !="studenti.ittsrimini.edu.it")
     {   
         errori++;
         errorescrt.innerHTML = "IL DOMINIO DELL' EMAIL INSERITA NON E' VALIDO, RIPOVA"
     }
-
     //Controllo della classe e sezione
     if (classe < 1 || classe > 5 || classe === "" || sezione === "" || classe === "undefined" || sezione === "undefined")
     {   
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la classe o la sezione";
     }
-
     // Converti le sezioni in maiuscolo per un confronto uniforme
     var sezioneMaiuscola = sezione.toUpperCase();
-
+    //Controllo tutte le sezioni
     if ((sezioneMaiuscola > "O" || sezioneMaiuscola > "o"||/^\d+$/.test(sezioneMaiuscola)) && classe == 1) 
     {   
         errori++;
@@ -72,28 +71,33 @@ function Invio()
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
+    //controllo istituto
 
+    if(istituto == "Default")
+    {
+        errorescrt.innerHTML = "Valore non corretto per l'istituto";
+        errori++;
+    }
     if (errori == 0)
     {
+        //pausa di circa un secondo prima fi un reindirizzamento
         setTimeout(() => {
-            window.location.href = "formOrdine.html" + "?classe=" + encodeURIComponent(classe) + "&sezione=" + encodeURIComponent(sezione);
+            window.location.href = "formOrdine.html" + "?classe=" + encodeURIComponent(classe) + "&sezione=" + encodeURIComponent(sezione)+ "&istituto=" + encodeURIComponent(istituto);
         }, 1000);
     }
     else
     {
-        // Open the modal
-        var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+        // Apro il modale di errore
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'));     
         myModal.show();
     }
 }
 
 function PrezzoPagare()
 {
-    var scritta = document.getElementById('prezzo');
     // Recupera i valori dei parametri dalla query string dell'URL
     var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);   
-    // Ottieni i valori dei parametri "classe" e "sezione"
+    var urlParams = new URLSearchParams(queryString);
     var classe = urlParams.get('classe');
     const dictionaryC = 
     {
@@ -147,6 +151,7 @@ function PrezzoPagare()
 }
 function InvioOrdine(spesaTotale)
 {
+    document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: 0.00€    ";
     var myModal = new bootstrap.Modal(document.getElementById('myModal'));
     var testo = document.getElementById("testo");
     var selectElementC = document.getElementById("cibo");
@@ -228,19 +233,8 @@ function InvioOrdine(spesaTotale)
         myModal.show();
     }
 }
-function resetForm() {
-    // Reimposta i valori dei campi del form
-    document.getElementById("cibo").selectedIndex = 0;
-    document.getElementById("bere").selectedIndex = 0;
-    // Reimposta l'importo da pagare
-    document.getElementById("prezzo").textContent = "IMPORTO DA PAGARE:";
-    var selectElements = document.querySelectorAll(".selectpicker");
-    selectElements.forEach(function(selectElement) 
-    {
-        selectElement.previousElementSibling.querySelector(".filter-option-inner-inner").textContent = "Nessuna selezione";
-    });
-}
 function CalcolaSpesaTotale() {
+    spesaTotale = 0.00;
     const dictionaryC = 
     {
         'Cotoletta': 2.00,
@@ -314,12 +308,22 @@ function ControlloQuantita()
         }
         else
         {
+            window.location.href = "mailto:gabriele.abbruscato06@gmail.com?subject=ConfermaOrdine&body=";
             document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione').toUpperCase() +" spesa totale = "+ CalcolaSpesaTotale();
             myModal.style.visibility = "hidden";
-            myModal2.show();        
+            myModal2.show(); 
+            //reindirizzamento dopo dieci secondi alla pagina di home
             setTimeout(() => {
                 window.location.href = "index.html";
             }, 10000);
         }
     }
 }
+paypal.Buttons({
+    createOrder: function(data, actions) {
+      // Personalizza questa funzione per creare l'ordine
+    },
+    onApprove: function(data, actions) {
+      // Personalizza questa funzione per gestire l'approvazione del pagamento
+    }
+  }).render('#paypal-button-container');
