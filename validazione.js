@@ -286,10 +286,17 @@ function CalcolaSpesaTotale()
         }
     });
     document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: " + spesaTotale.toFixed(2) + "€    ";
-    return spesaTotale.toFixed(2) + " €";
+    return{ 
+        spesaTotale: spesaTotale.toFixed(2),
+        selectedOptionsC,
+        selectedOptionsB,
+        dictionaryB,
+        dictionaryC
+    };
 }
 function ControlloQuantita() 
 {
+    var risultatoCalcolo = CalcolaSpesaTotale();
     var myModal = document.getElementById('myModal');
     var myModal2 = new bootstrap.Modal(document.getElementById('ModalErrore'));
     var numeroInput = document.querySelectorAll('input[type="number"]');
@@ -306,6 +313,19 @@ function ControlloQuantita()
             var email = "gabriele.abbruscato06@gmail.com";
             var titolo = "ConfermaOrdine";
             var datiForm = "Dettagli ordine" +"\nIstituto: " + parametri.get('istituto') + "\nClasse: " + parametri.get('classe') + parametri.get('sezione') + "\nOrdinazioni:";
+            risultatoCalcolo.selectedOptionsC.forEach(option => {
+                const inputId = 'input' + risultatoCalcolo.selectedOptionsC.indexOf(option)+10;
+                const inputElement = document.getElementById(inputId);
+                const quantita = parseInt(inputElement.value, 10) || 0;
+                datiForm+="\n" + quantita + "x " + option.value;
+            }); 
+            risultatoCalcolo.selectedOptionsB.forEach(option => {
+                const inputId = 'input' + risultatoCalcolo.selectedOptionsB.indexOf(option)+10;
+                const inputElement = document.getElementById(inputId);
+                const quantita = parseInt(inputElement.value, 10) || 0;
+                datiForm+="\n" + quantita +"x " + option.value;
+            });
+            datiForm+= "\nSpesa totale: " + risultatoCalcolo.spesaTotale + "€";
             window.location.href ="mailto:" + email + "?subject=" + titolo + "&body=" + encodeURIComponent(datiForm);
             document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione').toUpperCase() +" spesa totale = "+ CalcolaSpesaTotale();
             myModal.style.visibility = "hidden";
@@ -313,7 +333,7 @@ function ControlloQuantita()
             //reindirizzamento dopo dieci secondi alla pagina di home
             setTimeout(() => {
                 window.location.href = "index.html";
-            }, 10000);
+            }, 5000);
         }
     }
 }
