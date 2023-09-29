@@ -10,20 +10,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.1.1/papaparse.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=ID_ACCOUNT_BAR"></script>
 </head>
-<body background="img/sfondo.jpg" style="background-repeat: no-repeat;background-size: 100%;background-position-x: center;background-position-y: -7.5em;">
+<body background="img/sfondo.jpg"
+    style="background-repeat: no-repeat;background-size: 100%;background-position-x: center;background-position-y: -7.5em;">
 
     <h3>Perfeziona il tuo ordine</h3>
     <form style="display: flex" name="cibo" id="order-form">
         <label for="cibo" class="label-form">Scegli il cibo</label>
         <div class="container mt-5" style="display: inline-flex; margin-left: 40em;margin-top: -5em;">
-            <select id="cibo" class="selectpicker" multiple aria-label="Default select example" data-live-search="true" onchange="PrezzoPagare()">
+            <select id="cibo" class="selectpicker" multiple aria-label="Default select example" data-live-search="true"
+                onchange="PrezzoPagare()">
                 <option value="Cotoletta">Panino Cotoletta</option>
                 <option value="HotDog">Hot-Dog</option>
                 <option value="Focaccia">Focaccia</option>
@@ -47,13 +51,14 @@
         </div>
         <label for="bere" class="label-form">Scegli la bevanda</label>
         <div class="container mt-5W" style="display: flex; margin-left: 40em;margin-top: 2em;">
-            <select id="bere"class="selectpicker" multiple aria-label="Default select example" data-live-search="true" onchange="PrezzoPagare()">
+            <select id="bere" class="selectpicker" multiple aria-label="Default select example" data-live-search="true"
+                onchange="PrezzoPagare()">
                 <option value="Soda">Lemon soda</option>
-                <option value="CocaCola">Coca Cola</option>                
+                <option value="CocaCola">Coca Cola</option>
                 <option value="Aranciata">Aranciata</option>
-                <option value="TeLimone">Tè al limone</option>                
+                <option value="TeLimone">Tè al limone</option>
                 <option value="TePesca">Tè alla pesca</option>
-                <option value="Chinotto">Chinotto</option>                
+                <option value="Chinotto">Chinotto</option>
                 <option value="CocaColaBottiglia">Coca Bottiglia 50cl </option>
                 <option value="AcquaNaturale">Acqua naturale 50cl</option>
                 <option value="AcquaFrizzante">Acqua frizzante 50cl</option>
@@ -61,22 +66,26 @@
         </div>
         <br>
         <div name="pulsanti" class="buttons-finali">
-            <input type="button" class="btn-grad" value="INVIA" onclick="InvioOrdine(PrezzoPagare())" id="button-finale-submit" style="margin-left: 42em;">&nbsp;
+            <input type="button" class="btn-grad" value="INVIA" onclick="InvioOrdine(PrezzoPagare())"
+                id="button-finale-submit" style="margin-left: 42em;">&nbsp;
             <!--<input type="reset" value="RESET" onclick="resetForm()" id="button-finale-restart">-->
         </div>
     </form>
     <div class="modal fade" id="myModal" style="margin-top: 2.5em;">
         <div class="modal-dialog">
-            <div class="modal-content" id= "modal-content"style="margin-left:-8em;height: 10em;width:150%;">
+            <div class="modal-content" id="modal-content" style="margin-left:-8em;height: 10em;width:150%;">
                 <!-- Modal body -->
                 <div class="modal-header">
                     <p id="testo"></p>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body" id="modal-body" style="border: none none none none;flex-wrap: wrap;display: flex;"></div>
-                <div class="modal-footer" id="modal-footer" style="background-color: white;margin-top: 0em;"> 
+                <div class="modal-body" id="modal-body"
+                    style="border: none none none none;flex-wrap: wrap;display: flex;"></div>
+                <div class="modal-footer" id="modal-footer" style="background-color: white;margin-top: 0em;">
                     <h4 id="prezzo">IMPORTO DA PAGARE: 0.00€</h4>
-                    <input type="button" value="INVIA" onclick="ControlloQuantita(CalcolaSpesaTotale())" style="width:4em;height: 2em;border-radius: 10px;padding-left: .7em;" id="button-finale-submit2">
+                    <input type="button" value="INVIA" onclick="ControlloQuantita(CalcolaSpesaTotale())"
+                        style="width:4em;height: 2em;border-radius: 10px;padding-left: .7em;"
+                        id="button-finale-submit2">
                 </div>
             </div>
         </div>

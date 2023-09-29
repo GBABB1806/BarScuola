@@ -1,4 +1,5 @@
 # BarScuola
+INTRO
 Bar Scuola è un'applicazione web che permette di gestire i dati relativi ai clienti e alle ordinazioni.      
 L’host può creare, modificare ed eliminare gli utenti registrati al sistema; visualizzare le informazioni relative 
 agli articoli ed inoltre controllare in maniera semplice la rimozione o l'aggiunta di essi, in quanto nel file js 

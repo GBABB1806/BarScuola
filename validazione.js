@@ -1,5 +1,4 @@
-function Invio() 
-{
+function Invio() {
     //dichiarazione variabili
     var email = document.modulo.email.value;
     var contoChiocciola = 0;
@@ -9,91 +8,76 @@ function Invio()
     var sezione = document.getElementById("inputSezione").value;
     var errorescrt = document.getElementById("popuperrore");
     var dominioEmail = email.split("@")[1];
-    var istituto=document.getElementById("istituto").value;
+    var istituto = document.getElementById("istituto").value;
     //controllo mail
-    if(email == "" || email == "undefinied")
-    {
-        errorescrt.innerHTML="Inserisci un indirizzo e-mail";
+    if (email == "" || email == "undefinied") {
+        errorescrt.innerHTML = "Inserisci un indirizzo e-mail";
         errori++;
     }
-    else if(email != "")
-    {
-        for (let i = 0; i < email.length; i++) 
-        {
-            if(email.charAt(i) == '@')
+    else if (email != "") {
+        for (let i = 0; i < email.length; i++) {
+            if (email.charAt(i) == '@')
                 contoChiocciola++;
-            if (email.charAt(i) == '.') 
+            if (email.charAt(i) == '.')
                 contoPunti++;
-        } 
-        if(contoChiocciola != 1 || (contoPunti !=4 && contoPunti!=3))
-        {
+        }
+        if (contoChiocciola != 1 || (contoPunti != 4 && contoPunti != 3)) {
             errori++;
             errorescrt.innerHTML = "L'EMAIL INSERITA NON E' VALIDA, RIPROVA"
         }
     }
     //controllo dominio e-mail
-    if(dominioEmail !="studenti.ittsrimini.edu.it")
-    {   
+    if (dominioEmail != "studenti.ittsrimini.edu.it") {
         errori++;
         errorescrt.innerHTML = "IL DOMINIO DELL' EMAIL INSERITA NON E' VALIDO, RIPOVA"
     }
     //Controllo della classe e sezione
-    if (classe < 1 || classe > 5 || classe === "" || sezione === "" || classe === "undefined" || sezione === "undefined")
-    {   
+    if (classe < 1 || classe > 5 || classe === "" || sezione === "" || classe === "undefined" || sezione === "undefined") {
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la classe o la sezione";
     }
     // Converti le sezioni in maiuscolo per un confronto uniforme
     var sezioneMaiuscola = sezione.toUpperCase();
     //Controllo tutte le sezioni
-    if ((sezioneMaiuscola > "L" || sezioneMaiuscola > "l"||/^\d+$/.test(sezioneMaiuscola)) && classe == 1) 
-    {   
+    if ((sezioneMaiuscola > "L" || sezioneMaiuscola > "l" || /^\d+$/.test(sezioneMaiuscola)) && classe == 1) {
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "O" && classe == 2||/^\d+$/.test(sezioneMaiuscola))
-    {   
+    if (sezioneMaiuscola > "O" && classe == 2 || /^\d+$/.test(sezioneMaiuscola)) {
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "N" && classe == 3||/^\d+$/.test(sezioneMaiuscola))
-    {   
+    if (sezioneMaiuscola > "N" && classe == 3 || /^\d+$/.test(sezioneMaiuscola)) {
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "L" && classe == 4||/^\d+$/.test(sezioneMaiuscola))
-    {   
+    if (sezioneMaiuscola > "L" && classe == 4 || /^\d+$/.test(sezioneMaiuscola)) {
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
-    if (sezioneMaiuscola > "L" && classe == 5||/^\d+$/.test(sezioneMaiuscola))
-    { 
+    if (sezioneMaiuscola > "L" && classe == 5 || /^\d+$/.test(sezioneMaiuscola)) {
         errori++;
         errorescrt.innerHTML = "Valore non corretto per la sezione";
     }
     //controllo istituto
-    if(istituto == "Default")
-    {
+    if (istituto == "Default") {
         errorescrt.innerHTML = "Valore non corretto per l'istituto";
         errori++;
     }
-    if (errori == 0)
-    {
+    if (errori == 0) {
         //pausa di circa un secondo prima fi un reindirizzamento
         setTimeout(() => {
-            window.location.href = "formOrdine.html" + "?classe=" + encodeURIComponent(classe) + "&sezione=" + encodeURIComponent(sezione)+ "&istituto=" + encodeURIComponent(istituto);
+            window.location.href = "formOrdine.html" + "?classe=" + encodeURIComponent(classe) + "&sezione=" + encodeURIComponent(sezione) + "&istituto=" + encodeURIComponent(istituto);
         }, 1000);
     }
-    else
-    {
+    else {
         // Apro il modale di errore
-        var myModal = new bootstrap.Modal(document.getElementById('myModal'));     
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'));
         myModal.show();
     }
 }
-function PrezzoPagare()
-{
-    const dictionaryC = 
+function PrezzoPagare() {
+    const dictionaryC =
     {
         'Cotoletta': 2.00,
         'HotDog': 1.70,
@@ -115,17 +99,17 @@ function PrezzoPagare()
         'RotoloWurstel': 2.00,
         'RotoloSalsiccia': 2.00,
     };
-    const dictionaryB = 
+    const dictionaryB =
     {
-        "Soda" : 1.10,
-        "CocaCola" : 1.10,
-        "Aranciata" : 1.10,
-        "TeLimone" : 1.10,
-        "TePesca" : 1.10,
-        "Chinotto" : 1.10,
-        "CocaColaBottiglia" : 1.80,
-        "AcquaNaturale" : 0.45,
-        "AcquaFrizzante" : 0.45
+        "Soda": 1.10,
+        "CocaCola": 1.10,
+        "Aranciata": 1.10,
+        "TeLimone": 1.10,
+        "TePesca": 1.10,
+        "Chinotto": 1.10,
+        "CocaColaBottiglia": 1.80,
+        "AcquaNaturale": 0.45,
+        "AcquaFrizzante": 0.45
     };
     const selectElementC = document.getElementById('cibo');
     const selectedOptionsC = Array.from(selectElementC.selectedOptions);
@@ -136,7 +120,7 @@ function PrezzoPagare()
     selectedOptionsC.forEach(option => {
         console.log(option.value);
         spesaTotale += dictionaryC[option.value];
-    }); 
+    });
     selectedOptionsB.forEach(option => {
         console.log(option.value);
         spesaTotale += dictionaryB[option.value];
@@ -144,8 +128,7 @@ function PrezzoPagare()
     spesaTotale = spesaTotale.toFixed(2);
     return spesaTotale;
 }
-function InvioOrdine(spesaTotale)
-{
+function InvioOrdine(spesaTotale) {
     document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: 0.00€    ";
     var myModal = new bootstrap.Modal(document.getElementById('myModal'));
     var testo = document.getElementById("testo");
@@ -156,8 +139,7 @@ function InvioOrdine(spesaTotale)
     var puls = document.getElementById("button-finale-submit2");
     var modalContent = document.getElementById("modal-body");
     modalContent.innerHTML = "";
-    if(spesaTotale!= 0.00)
-    {
+    if (spesaTotale != 0.00) {
         document.getElementById("modal-content").style.marginLeft = "-8em";
         document.getElementById("modal-content").style.height = "10em";
         document.getElementById("modal-content").style.width = "150%";
@@ -166,22 +148,20 @@ function InvioOrdine(spesaTotale)
         document.getElementById("prezzo").style.display = "flex";
         puls.style.display = "flex";
         testo.innerHTML = "Il tuo ordine è quasi pronto, seleziona la quantità dei prodotti selezionati";
-        for (var i = 0; i < selectedOptionsC.length; i++) 
-        {
+        for (var i = 0; i < selectedOptionsC.length; i++) {
             var labelElement = document.createElement("label");
             var imgElement = document.createElement("img");
             var inputElement = document.createElement("input");
             inputElement.type = "number";
             inputElement.id = "input" + i;
             inputElement.onchange = CalcolaSpesaTotale;
-            labelElement.className="labelOrdine";
+            labelElement.className = "labelOrdine";
             imgElement.style.width = "75px";
             imgElement.style.height = "75px";
             imgElement.style.borderRadius = "50px";
-            imgElement.src = "img/" + selectedOptionsC[i].value + ".jpg";            
-            inputElement.addEventListener("input", function() 
-            {
-                if (this.value.length > 1) 
+            imgElement.src = "img/" + selectedOptionsC[i].value + ".jpg";
+            inputElement.addEventListener("input", function () {
+                if (this.value.length > 1)
                     this.value = this.value.slice(0, 1); // Limita la lunghezza a 2 cifre
             });
             modalContent.appendChild(labelElement);
@@ -189,22 +169,20 @@ function InvioOrdine(spesaTotale)
             modalContent.appendChild(inputElement);
             modalContent.appendChild(document.createElement("br"));
         }
-        for (var i = 0; i < selectedOptionsB.length; i++) 
-        {
+        for (var i = 0; i < selectedOptionsB.length; i++) {
             var labelElement = document.createElement("label");
             var imgElement = document.createElement("img");
             var inputElement = document.createElement("input");
             inputElement.type = "number";
-            inputElement.id = "input" + i+10;
+            inputElement.id = "input" + i + 10;
             inputElement.onchange = CalcolaSpesaTotale;
             labelElement.className = "labelOrdine";
             imgElement.style.width = "75px";
             imgElement.style.height = "75px";
             imgElement.style.borderRadius = "50px";
-            imgElement.src = "img/" + selectedOptionsB[i].value+ ".jpg";
-            inputElement.addEventListener("input", function() 
-            {
-                if (this.value.length > 1) 
+            imgElement.src = "img/" + selectedOptionsB[i].value + ".jpg";
+            inputElement.addEventListener("input", function () {
+                if (this.value.length > 1)
                     this.value = this.value.slice(0, 1); // Limita la lunghezza a 2 cifre
             });
             modalContent.appendChild(labelElement);
@@ -214,8 +192,7 @@ function InvioOrdine(spesaTotale)
         }
         myModal.show();
     }
-    else
-    {
+    else {
         document.getElementById("modal-content").style.marginLeft = 0;
         document.getElementById("modal-content").style.height = "auto";
         document.getElementById("modal-content").style.width = "100%";
@@ -227,10 +204,9 @@ function InvioOrdine(spesaTotale)
         myModal.show();
     }
 }
-function CalcolaSpesaTotale() 
-{
+function CalcolaSpesaTotale() {
     spesaTotale = 0.00;
-    const dictionaryC = 
+    const dictionaryC =
     {
         'Cotoletta': 2.00,
         'HotDog': 1.70,
@@ -252,17 +228,17 @@ function CalcolaSpesaTotale()
         'RotoloWurstel': 2.00,
         'RotoloSalsiccia': 2.00,
     };
-    const dictionaryB = 
+    const dictionaryB =
     {
-        "Soda" : 1.10,
-        "CocaCola" : 1.10,
-        "Aranciata" : 1.10,
-        "TeLimone" : 1.10,
-        "TePesca" : 1.10,
-        "Chinotto" : 1.10,
-        "CocaColaBottiglia" : 1.80,
-        "AcquaNaturale" : 0.45,
-        "AcquaFrizzante" : 0.45
+        "Soda": 1.10,
+        "CocaCola": 1.10,
+        "Aranciata": 1.10,
+        "TeLimone": 1.10,
+        "TePesca": 1.10,
+        "Chinotto": 1.10,
+        "CocaColaBottiglia": 1.80,
+        "AcquaNaturale": 0.45,
+        "AcquaFrizzante": 0.45
     };
     const selectElementC = document.getElementById('cibo');
     const selectedOptionsC = Array.from(selectElementC.selectedOptions);
@@ -278,7 +254,7 @@ function CalcolaSpesaTotale()
         }
     });
     selectedOptionsB.forEach(option => {
-        const inputId = 'input' + selectedOptionsB.indexOf(option)+10;
+        const inputId = 'input' + selectedOptionsB.indexOf(option) + 10;
         const inputElement = document.getElementById(inputId);
         if (inputElement) {
             const quantita = parseInt(inputElement.value, 10) || 0;
@@ -286,7 +262,7 @@ function CalcolaSpesaTotale()
         }
     });
     document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: " + spesaTotale.toFixed(2) + "€    ";
-    return{ 
+    return {
         spesaTotale: spesaTotale.toFixed(2),
         selectedOptionsC,
         selectedOptionsB,
@@ -294,42 +270,38 @@ function CalcolaSpesaTotale()
         dictionaryC
     };
 }
-function ControlloQuantita() 
-{
+function ControlloQuantita() {
     var risultatoCalcolo = CalcolaSpesaTotale();
     var myModal = document.getElementById('myModal');
     var myModal2 = new bootstrap.Modal(document.getElementById('ModalErrore'));
     var numeroInput = document.querySelectorAll('input[type="number"]');
     var parametri = new URLSearchParams(window.location.search);
-    for (let i = 0; i < numeroInput.length; i++) 
-    {
-        if(numeroInput[i].value ===""||numeroInput[i].value === 0 || numeroInput[i].value === undefined)
-        {
+    for (let i = 0; i < numeroInput.length; i++) {
+        if (numeroInput[i].value === "" || numeroInput[i].value === 0 || numeroInput[i].value === undefined) {
             document.getElementById("testoFinale").innerHTML = "Inserisci delle quantita valide per tutti i prodotti";
             myModal2.show();
         }
-        else
-        {
+        else {
             var email = "gabriele.abbruscato06@gmail.com";
             var titolo = "ConfermaOrdine";
-            var datiForm = "Dettagli ordine" +"\nIstituto: " + parametri.get('istituto') + "\nClasse: " + parametri.get('classe') + parametri.get('sezione') + "\nOrdinazioni:";
+            var datiForm = "Dettagli ordine" + "\nIstituto: " + parametri.get('istituto') + "\nClasse: " + parametri.get('classe') + parametri.get('sezione') + "\nOrdinazioni:";
             risultatoCalcolo.selectedOptionsC.forEach(option => {
-                const inputId = 'input' + risultatoCalcolo.selectedOptionsC.indexOf(option)+10;
+                const inputId = 'input' + risultatoCalcolo.selectedOptionsC.indexOf(option) + 10;
                 const inputElement = document.getElementById(inputId);
                 const quantita = parseInt(inputElement.value, 10) || 0;
-                datiForm+="\n" + quantita + "x " + option.value;
-            }); 
-            risultatoCalcolo.selectedOptionsB.forEach(option => {
-                const inputId = 'input' + risultatoCalcolo.selectedOptionsB.indexOf(option)+10;
-                const inputElement = document.getElementById(inputId);
-                const quantita = parseInt(inputElement.value, 10) || 0;
-                datiForm+="\n" + quantita +"x " + option.value;
+                datiForm += "\n" + quantita + "x " + option.value;
             });
-            datiForm+= "\nSpesa totale: " + risultatoCalcolo.spesaTotale + "€";
-            window.location.href ="mailto:" + email + "?subject=" + titolo + "&body=" + encodeURIComponent(datiForm);
-            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe "+ parametri.get('classe')+ parametri.get('sezione').toUpperCase() +" spesa totale = "+ CalcolaSpesaTotale();
+            risultatoCalcolo.selectedOptionsB.forEach(option => {
+                const inputId = 'input' + risultatoCalcolo.selectedOptionsB.indexOf(option) + 10;
+                const inputElement = document.getElementById(inputId);
+                const quantita = parseInt(inputElement.value, 10) || 0;
+                datiForm += "\n" + quantita + "x " + option.value;
+            });
+            datiForm += "\nSpesa totale: " + risultatoCalcolo.spesaTotale + "€";
+            window.location.href = "mailto:" + email + "?subject=" + titolo + "&body=" + encodeURIComponent(datiForm);
+            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe " + parametri.get('classe') + parametri.get('sezione').toUpperCase() + " spesa totale = " + CalcolaSpesaTotale();
             myModal.style.visibility = "hidden";
-            myModal2.show(); 
+            myModal2.show();
             //reindirizzamento dopo dieci secondi alla pagina di home
             setTimeout(() => {
                 window.location.href = "index.html";

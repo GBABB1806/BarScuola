@@ -1,16 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;    
+    font-family: Arial, Helvetica, sans-serif;
 }
-*::selection
-{
+
+*::selection {
     background-color: #575c67;
     color: #54a34a;
 }
-body
-{
+
+body {
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
@@ -20,19 +20,22 @@ body
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
-form
-{
+
+form {
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
 }
-input[type="text"],input[type="email"],input[type="number"],h1
-{
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+h1 {
     border-color: #848080;
     width: 26em;
     border-top: none;
     border-left: none;
-    border-right: none;  
+    border-right: none;
     outline: none;
     padding-bottom: 0.7em;
     margin: 1.5em;
@@ -42,12 +45,12 @@ input[type="text"],input[type="email"],input[type="number"],h1
     border-bottom-width: 0.02em;
     font-family: Arial, Helvetica, sans-serif;
 }
-input::placeholder
-{
+
+input::placeholder {
     color: rgb(69, 63, 63);
 }
-select
-{
+
+select {
     font-family: Arial, Helvetica, sans-serif;
     padding: 7px 40px 7px 12px;
     outline: none;
@@ -60,20 +63,21 @@ select
     cursor: pointer;
     font-size: 16px;
     transition: all 150ms ease;
-}   
-select:hover
-{
+}
+
+select:hover {
     border-color: #94A5B5;
     background-color: rgb(128, 218, 128);
     transition: all 150ms ease;
 }
-.buttons-finali
-{
+
+.buttons-finali {
     display: flex;
     justify-content: space-between;
 }
-#button-finale-submit, #button-finale-submit2
-{
+
+#button-finale-submit,
+#button-finale-submit2 {
     font-family: Arial, Helvetica, sans-serif;
     width: 11.5em;
     height: 3.5em;
@@ -87,8 +91,9 @@ select:hover
     cursor: pointer;
     transition-duration: 0.5s;
 }
-#button-finale-submit:hover, #button-finale-submit2:hover
-{
+
+#button-finale-submit:hover,
+#button-finale-submit2:hover {
     font-family: Arial, Helvetica, sans-serif;
     width: 11.5em;
     height: 3.5em;
@@ -102,8 +107,9 @@ select:hover
     cursor: pointer;
     transition-duration: 0.5s;
 }
-#button-finale-submit:focus, #button-finale-submit2:focus
-{
+
+#button-finale-submit:focus,
+#button-finale-submit2:focus {
     font-family: Arial, Helvetica, sans-serif;
     width: 11.5em;
     height: 3.5em;
@@ -117,9 +123,9 @@ select:hover
     cursor: pointer;
     transition-duration: 0.5s;
 }
-#button-finale-restart
-{
-    background-image: linear-gradient(to right, #553131 0%, #c02222  51%, #553131  100%);
+
+#button-finale-restart {
+    background-image: linear-gradient(to right, #553131 0%, #c02222 51%, #553131 100%);
     width: 11.5em;
     height: 3.5em;
     border-radius: 0.8em;
@@ -135,9 +141,10 @@ select:hover
     cursor: pointer;
     transition-duration: 0.5s;
 }
-#button-finale-restart:hover
-{
-    background-position: right center; /* change the direction of the change here */
+
+#button-finale-restart:hover {
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
     width: 11.5em;
@@ -152,8 +159,8 @@ select:hover
     cursor: pointer;
     transition-duration: 0.5s;
 }
-#button-finale-restart:focus
-{
+
+#button-finale-restart:focus {
     width: 11.5em;
     height: 3.5em;
     border-radius: 0.8em;
@@ -167,19 +174,21 @@ select:hover
     cursor: pointer;
     transition-duration: 0.5s;
 }
-#spinner
-{
+
+#spinner {
     width: 5em;
     height: 5em;
     display: none;
     margin-left: 47.5%;
 }
-.btn, .bootstrap-select, .show-tick
-{
+
+.btn,
+.bootstrap-select,
+.show-tick {
     width: 150em;
 }
-.label-form  
-{
+
+.label-form {
     font-family: Lexend;
     font-weight: bolder;
     display: inline-flex;
@@ -188,65 +197,70 @@ select:hover
     margin-bottom: -1em;
     color: #b73535;
 }
-h3,h4
-{
+
+h3,
+h4 {
     display: flex;
     font-weight: bolder;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-h3
-{
+
+h3 {
     color: #cb4279;
     padding-top: 4em;
     margin-left: 21.5em;
 }
-h4
-{
+
+h4 {
     color: #b96767;
-    margin-left: 23.5em ;
+    margin-left: 23.5em;
     padding-top: 1em;
     padding-bottom: 1em;
 }
-.modal-backdrop, .fade, .show, .modal
-{
+
+.modal-backdrop,
+.fade,
+.show,
+.modal {
     width: 110%;
     height: 110%;
-}   
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button 
-{
-  -webkit-appearance: none;
-  margin: 0;
 }
-input[type="number"]
-{
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
     width: 1em;
     margin-top: 0.5em;
 }
-.label-ordine
-{
+
+.label-ordine {
     font-family: Lexend;
     font-weight: bold;
     display: inline-flex;
 }
-#modal-body 
-{
+
+#modal-body {
     background-color: #fff;
     max-height: 60vh;
 }
-.btn.dropdown-toggle:hover
-{
+
+.btn.dropdown-toggle:hover {
     background-color: rgb(128, 218, 128);
     opacity: 1;
     border-color: transparent;
     transition-duration: 1s;
 }
-.btn.dropdown-toggle
-{
+
+.btn.dropdown-toggle {
     background-color: lightgreen;
     border-color: transparent;
     transition-duration: 1s;
 }
+
 .dropup .dropdown-toggle::after {
     display: inline-block;
     margin-left: 0.255em;
@@ -257,61 +271,65 @@ input[type="number"]
     border-bottom: 0.3em solid;
     border-left: 0.3em solid transparent;
 }
-.inner.show
-{
+
+.inner.show {
     min-height: 100px;
     max-height: 100px;
     min-width: max-content;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-         
+
 .btn-grad {
-    background-image: linear-gradient(to right, #315536 0%, #22c02c  51%, #315538  100%);
+    background-image: linear-gradient(to right, #315536 0%, #22c02c 51%, #315538 100%);
     padding: 15px 45px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 20px #eee;
     display: block;
-  }
+}
 
-  .btn-grad:hover {
-    background-position: right center; /* change the direction of the change here */
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
-  }
-@media only screen and (max-width: 768px) 
-{
-  body 
-  {
-      font-size: 14px;
-  }
-  input[type="text"],input[type="email"],input[type="number"],h1 
-  {
-      width: 100%;
-  }
-  select 
-  {
-      width: 100%;
-  }
-  .label-form 
-  {
-      margin-left: 0;
-      margin-top: 0;
-  }
-  .buttons-finali 
-  {
-      flex-direction: column;
-      align-items: center;
-      margin-left: auto;
-      margin-right: auto;
-  }
-  #button-finale-submit, #button-finale-submit2 
-  {
-      margin-left: 0;
-      margin-bottom: 10px;
-  }
-} 
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    h1 {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    .label-form {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .buttons-finali {
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #button-finale-submit,
+    #button-finale-submit2 {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
