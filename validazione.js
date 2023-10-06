@@ -65,7 +65,7 @@ function Invio() {
         errori++;
     }
     if (errori == 0) {
-        //pausa di circa un secondo prima fi un reindirizzamento
+        //pausa di circa un secondo prima di un reindirizzamento
         setTimeout(() => {
             window.location.href = "formOrdine.html" + "?classe=" + encodeURIComponent(classe) + "&sezione=" + encodeURIComponent(sezione) + "&istituto=" + encodeURIComponent(istituto);
         }, 1000);
@@ -116,7 +116,7 @@ function PrezzoPagare() {
     const selectElementB = document.getElementById('bere');
     const selectedOptionsB = Array.from(selectElementB.selectedOptions);
     var spesaTotale = 0.0;
-    //foreach per il la scelta
+    //foreach per la scelta
     selectedOptionsC.forEach(option => {
         console.log(option.value);
         spesaTotale += dictionaryC[option.value];
@@ -140,6 +140,7 @@ function InvioOrdine(spesaTotale) {
     var modalContent = document.getElementById("modal-body");
     modalContent.innerHTML = "";
     if (spesaTotale != 0.00) {
+        //Settaggi del modale se l'ordine è corretto
         document.getElementById("modal-content").style.marginLeft = "-8em";
         document.getElementById("modal-content").style.height = "10em";
         document.getElementById("modal-content").style.width = "150%";
@@ -148,6 +149,7 @@ function InvioOrdine(spesaTotale) {
         document.getElementById("prezzo").style.display = "flex";
         puls.style.display = "flex";
         testo.innerHTML = "Il tuo ordine è quasi pronto, seleziona la quantità dei prodotti selezionati";
+        //creo tante caselle quante sono le cose ordinate con immagine relative, tutto dentro ad una label
         for (var i = 0; i < selectedOptionsC.length; i++) {
             var labelElement = document.createElement("label");
             var imgElement = document.createElement("img");
@@ -192,6 +194,7 @@ function InvioOrdine(spesaTotale) {
         }
         myModal.show();
     }
+    //qui invece se non segno nulla come ordinato segnalo errore con il modale rimpicciolito
     else {
         document.getElementById("modal-content").style.marginLeft = 0;
         document.getElementById("modal-content").style.height = "auto";
@@ -245,6 +248,7 @@ function CalcolaSpesaTotale() {
     const selectElementB = document.getElementById('bere');
     const selectedOptionsB = Array.from(selectElementB.selectedOptions);
     var spesaTotale = 0;
+    //in base a ciò che è ordinato calcolo la spesa totale tramite la quantità di cibo/bevanda tramite il controllo sull'id e cerco nelle due dictionary
     selectedOptionsC.forEach(option => {
         const inputId = 'input' + selectedOptionsC.indexOf(option);
         const inputElement = document.getElementById(inputId);
@@ -262,6 +266,7 @@ function CalcolaSpesaTotale() {
         }
     });
     document.getElementById("prezzo").innerHTML = "IMPORTO DA PAGARE: " + spesaTotale.toFixed(2) + "€    ";
+    //ritorno due variabili che servono per un'altra funzione con gli array creati e la spesa totale
     return {
         spesaTotale: spesaTotale.toFixed(2),
         selectedOptionsC,
@@ -282,11 +287,12 @@ function ControlloQuantita() {
             myModal2.show();
         }
         else {
+            //se tutto va bene invio la mail con i dati delle variabili qui sotto
             var email = "gabriele.abbruscato06@gmail.com";
             var titolo = "ConfermaOrdine";
             var datiForm = "Dettagli ordine" + "\nIstituto: " + parametri.get('istituto') + "\nClasse: " + parametri.get('classe') + parametri.get('sezione') + "\nOrdinazioni:";
             risultatoCalcolo.selectedOptionsC.forEach(option => {
-                const inputId = 'input' + risultatoCalcolo.selectedOptionsC.indexOf(option) + 10;
+                const inputId = 'input' + risultatoCalcolo.selectedOptionsC.indexOf(option);
                 const inputElement = document.getElementById(inputId);
                 const quantita = parseInt(inputElement.value, 10) || 0;
                 datiForm += "\n" + quantita + "x " + option.value;
@@ -299,10 +305,10 @@ function ControlloQuantita() {
             });
             datiForm += "\nSpesa totale: " + risultatoCalcolo.spesaTotale + "€";
             window.location.href = "mailto:" + email + "?subject=" + titolo + "&body=" + encodeURIComponent(datiForm);
-            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe " + parametri.get('classe') + parametri.get('sezione').toUpperCase() + " spesa totale = " + CalcolaSpesaTotale();
+            document.getElementById("testoFinale").innerHTML = "Ordine in consegna, presso la classe " + parametri.get('classe') + parametri.get('sezione').toUpperCase() + " spesa totale = " + CalcolaSpesaTotale().spesaTotale;
             myModal.style.visibility = "hidden";
             myModal2.show();
-            //reindirizzamento dopo dieci secondi alla pagina di home
+            //reindirizzamento dopo cinque secondi alla pagina di home
             setTimeout(() => {
                 window.location.href = "index.html";
             }, 5000);
